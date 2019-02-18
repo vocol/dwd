@@ -1,0 +1,729 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix mv: <http://schema.mobivoc.org/> .
+@prefix ecc: <https://ns.eccenca.com/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix s: <http://schema.org/>.
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#>.
+@prefix wgs:  <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+
+@prefix dwd: <https://opendata.dwd.de/#> .
+
+
+<https://opendata.dwd.de/#>
+    a voaf:Vocabulary, owl:Ontology ;
+    rdfs:label "DWD Weather Ontology"@en ;
+    rdfs:comment "The ontology covers Weather Stations, POI weather prediction data and POI live observation data." ;
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:creator <http://np00.github.io/#i> ;
+    dct:modified "2019-02-12"^^xsd:date ;
+    vann:preferredNamespacePrefix "dwd" ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ; ;
+    owl:versionInfo "SNAPSHOT" ;
+.
+
+# Weather Station Part 
+
+
+dwd:WeatherStation
+    a rdfs:Class, owl:Class ;
+    rdfs:label "Weather Station"@en,
+               "Wetterstation"@de ;
+    rdfs:comment "A weather station for measuring weather data."@en ;
+    dct:created "2019-02-12"^^xsd:date ;
+    dct:modified "2019-02-12"^^xsd:date ;
+    vs:term_status "testing" ;
+    dct:creator <http://np00.github.io/#i> ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ; 
+    .
+
+
+dwd:icao
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:label "ICAO"@en, "ICAO"@de ;
+    rdfs:comment "Reference to Airport (ICAO, International Civil Aviation Organization) in case the Weather station is located at one."@en ;
+    rdfs:domain dwd:WeatherStation ;
+    rdfs:range xsd:string ;
+    dct:created "2019-02-12"^^xsd:date ;
+    dct:modified "2019-02-12"^^xsd:date ;
+    vs:term_status "testing" ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ; 
+    .
+
+dwd:station_name
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:label "Weather Station Name"@en, "Wetterstation Name"@de ;
+    rdfs:comment "Name of a Weather Station"@en ;
+    rdfs:domain dwd:WeatherStation ;
+    rdfs:range xsd:string ;
+    dct:created "2019-02-12"^^xsd:date ;
+    dct:modified "2019-02-12"^^xsd:date ;
+    vs:term_status "testing" ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ; 
+    .
+
+dwd:station_id
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:label "Weather Station Name"@en, "Wetterstation Name"@de ;
+    rdfs:comment "Weather Station ID. Unclear: who issues them."@en ;
+    rdfs:domain dwd:WeatherStation ;
+    rdfs:range xsd:string ;
+    dct:created "2019-02-12"^^xsd:date ;
+    dct:modified "2019-02-12"   ^^xsd:date ;
+    vs:term_status "testing" ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ; 
+    .
+
+dwd:hmod_h
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:label "Weather Station hmod_h"@en, "Wetterstation hmod_h"@de ;
+    rdfs:comment "Unclear what it stands for. TBD"@en ;
+    rdfs:domain dwd:WeatherStation ;
+    rdfs:range xsd:int ;
+    dct:created "2019-02-12"^^xsd:date ;
+    dct:modified "2019-02-12"^^xsd:date ;
+    vs:term_status "testing" ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ; 
+    .
+
+
+dwd:clu
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:label "Weather Station clu"@en, "Wetterstation clu"@de ;
+    rdfs:comment "Unclear what it stands for. TBD"@en ;
+    rdfs:domain dwd:WeatherStation ;
+    rdfs:range xsd:int ;
+    dct:created "2019-02-12"^^xsd:date ;
+    dct:modified "2019-02-12"^^xsd:date ;
+    vs:term_status "testing" ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ; 
+    .
+
+dwd:cofx
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:label "CofX"@en, "CofX"@de ;
+    rdfs:comment "Unclear what it stands for. TBD"@en ;
+    rdfs:domain dwd:WeatherStation ;
+    rdfs:range xsd:int ;
+    dct:created "2019-02-12"^^xsd:date ;
+    dct:modified "2019-02-12"^^xsd:date ;
+    vs:term_status "testing" ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ; 
+    .
+
+dwd:elevation
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:label "Weather Station elevation"@en, "Erhebung der Wetterstation"@de ;
+    rdfs:comment "Elevation in meters of a weather station. TBD: Is it equal to WGS Altitude? The internet says Elevation != Altitude"@en ;
+    rdfs:domain dwd:WeatherStation ;
+    rdfs:range xsd:int ;
+    dct:created "2019-02-12"^^xsd:date ;
+    dct:modified "2019-02-12"^^xsd:date ;
+    vs:term_status "testing" ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ; 
+    .
+
+dwd:station_type
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:label "Weather Station elevation"@en, "Erhebung der Wetterstation"@de ;
+    rdfs:comment "Local classifier for Weather Stations. Examples: LAND, KUES, MEER,... (land, coast, ocean)."@en ;
+    rdfs:domain dwd:WeatherStation ;
+    rdfs:range xsd:string ;
+    dct:created "2019-02-12"^^xsd:date ;
+    dct:modified "2019-02-12"^^xsd:date ;
+    vs:term_status "testing" ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ; 
+    .
+
+wgs:lat 
+    a rdf:Property ; 
+    rdfs:domain wgs:SpatialThing ; 
+    rdfs:label "latitude"; 
+    rdfs:comment "The WGS84 latitude of a SpatialThing (decimal degrees)."; 
+    .
+
+wgs:long 
+    a rdf:Property ; 
+    rdfs:domain wgs:SpatialThing ; 
+    rdfs:label "longitude"; 
+    rdfs:comment "The WGS84 longitude of a SpatialThing (decimal degrees)."; 
+    .
+
+
+####################################################################################
+
+
+# Observation Part
+dwd:Observation
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdfs:Class, owl:Class ;
+    rdfs:comment "Observation."@en ;
+    rdfs:label ""@en, ""@de ;
+    .
+
+dwd:observation_station_id
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ; ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+dwd:observation_date
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ; ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:date ;
+    .
+
+dwd:observation_time
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:time ;
+    .
+
+
+dwd:cloud_cover_total
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:daily_mean_of_temperature_previous_day
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:depth_of_new_snow
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:dew_point_temperature_at_2_meter_above_ground
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:diffuse_solar_radiation_last_hour
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:direct_solar_radiation_last_24_hours
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:direct_solar_radiation_last_hour
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:dry_bulb_temperature_at_2_meter_above_ground
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:evaporation_evapotranspiration_last_24_hours
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:global_radiation_last_hour
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:global_radiation_past_24_hours
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:height_of_base_of_lowest_cloud_above_station
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:horizontal_visibility
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:maximum_of_10_minutes_mean_of_wind_speed_for_previous_day
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:maximum_of_temperature_for_previous_day
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:maximum_temperature_last_12_hours_2_meters_above_ground
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:maximum_wind_speed_as_10_minutes_mean_during_last_hour
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:maximum_wind_speed_during_last_6_hours
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:maximum_wind_speed_for_previous_day
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:maximum_wind_speed_last_hour
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:mean_wind_direction_during_last_10_min_at_10_meters_above_ground
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:minimum_of_temperature_at_5_cm_above_ground_for_previous_day
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:minimum_of_temperature_for_previous_day
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:minimum_temperature_last_12_hours_2_meters_above_ground
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:minimum_temperature_last_12_hours_5_cm_above_ground
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:past_weather_1
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:past_weather_2
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:precipitation_amount_last_24_hours
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:precipitation_amount_last_3_hours
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:precipitation_amount_last_6_hours
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:precipitation_amount_last_hour
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:precipitation_last_12_hours
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+
+ dwd:present_weather
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:pressure_reduced_to_mean_sea_level
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:relative_humidity
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:sea_water_temperature
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:temperature_at_5_cm_above_ground
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:total_snow_depth
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:total_time_of_sunshine_during_last_hour
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+ dwd:total_time_of_sunshine_past_day
+    dct:created "2018-10-19"^^xsd:date ;
+    dct:modified "2018-10-19"^^xsd:date ;
+    vs:term_status "testing" ;
+    a rdf:Property, owl:DatatypeProperty ;
+    rdfs:comment "" ;
+    rdfs:domain mv:Observation ;
+    rdfs:isDefinedBy <https://opendata.dwd.de/#> ;
+    rdfs:label ""@en, ""@de ;
+    rdfs:range xsd:integer ;
+    .
+
+
+    
+
