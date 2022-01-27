@@ -76,7 +76,7 @@ dwd:station_id
     rdfs:domain dwd:WeatherStation ;
     rdfs:range xsd:string ;
     dct:created "2019-02-12"^^xsd:date ;
-    dct:modified "2019-02-12"   ^^xsd:date ;
+    dct:modified "2019-02-12"^^xsd:date ;
     vs:term_status "testing" ;
     rdfs:isDefinedBy <https://opendata.dwd.de/#> ; 
     .
